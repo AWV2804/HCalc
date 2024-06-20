@@ -14,6 +14,7 @@
 		0CFC37D52C23B73A0002AC53 /* HCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC37D42C23B73A0002AC53 /* HCalcTests.swift */; };
 		0CFC37DF2C23B73A0002AC53 /* HCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC37DE2C23B73A0002AC53 /* HCalcUITests.swift */; };
 		0CFC37E12C23B73A0002AC53 /* HCalcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC37E02C23B73A0002AC53 /* HCalcUITestsLaunchTests.swift */; };
+		0CFC37EE2C23DC2D0002AC53 /* BitsVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC37ED2C23DC2D0002AC53 /* BitsVisualizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		0CFC37DA2C23B73A0002AC53 /* HCalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HCalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CFC37DE2C23B73A0002AC53 /* HCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCalcUITests.swift; sourceTree = "<group>"; };
 		0CFC37E02C23B73A0002AC53 /* HCalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0CFC37ED2C23DC2D0002AC53 /* BitsVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsVisualizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				0CFC37C22C23B7380002AC53 /* HCalcApp.swift */,
 				0CFC37C42C23B7380002AC53 /* ContentView.swift */,
+				0CFC37ED2C23DC2D0002AC53 /* BitsVisualizer.swift */,
 				0CFC37C62C23B73A0002AC53 /* Assets.xcassets */,
 				0CFC37CB2C23B73A0002AC53 /* HCalc.entitlements */,
 				0CFC37C82C23B73A0002AC53 /* Preview Content */,
@@ -261,6 +264,7 @@
 			files = (
 				0CFC37C52C23B7380002AC53 /* ContentView.swift in Sources */,
 				0CFC37C32C23B7380002AC53 /* HCalcApp.swift in Sources */,
+				0CFC37EE2C23DC2D0002AC53 /* BitsVisualizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
