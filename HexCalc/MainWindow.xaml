@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel Margin="10">
+            <TextBox Name="NumInputTextBox" Width="200" Margin="5" TextChanged="NumInputTextBox_TextChanged"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <TextBlock Text="Decimal:" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="DecTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
+                <TextBlock Text="Hex:" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="HexTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
+                <TextBlock Text="Binary:" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="BinTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
+            </StackPanel>
+            <Button Content="Launch Bit Visualizer" Click="LaunchBitVisualizerButton_Click" Width="200" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>
