@@ -69,7 +69,8 @@ namespace HexCalc
 
         private void LaunchBitVisualizerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            BitVisualizer bitVisualizerWindow = new BitVisualizer();
+            bitVisualizerWindow.Show();
         }
     }
 }
