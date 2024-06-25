@@ -67,7 +67,19 @@ namespace HexCalc
             }
         }
 
+        private void NumInputTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LaunchBitVisualizer();
+            }
+        }
+
         private void LaunchBitVisualizerButton_Click(object sender, RoutedEventArgs e)
+        {
+            LaunchBitVisualizer();
+        }
+        private void LaunchBitVisualizer()
         {
             string binaryValue = BinTextBox.Text;
             string hexValue = HexTextBox.Text;
