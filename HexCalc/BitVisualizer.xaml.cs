@@ -22,6 +22,7 @@ namespace HexCalc
         public BitVisualizer(string binaryValue, string hexValue, string decValue)
         {
             InitializeComponent();
+            RenderDisplay();
             DisplayBits(binaryValue);
         }
 
@@ -39,6 +40,23 @@ namespace HexCalc
                     bitTextBlock.Foreground = binaryValue[31 - i] == '1' ? Brushes.DarkOrange : Brushes.Black;
                     bitTextBlock.FontWeight = binaryValue[31 - i] == '1' ? FontWeights.Bold : FontWeights.Normal;
                 }
+            }
+        }
+
+        private void RenderDisplay()
+        {
+            int row, col;
+            for (int i = 0; i < 37; i++)
+            {
+                // get current row and col
+                row = i >= 16 ? 0 : 1;
+                col = i;
+
+                // need textblock for bit name
+                // Border for bit rep and bit inside
+
+                TextBlock bitIndex = new TextBlock;
+                bitIndex.Margin = 25;
             }
         }
     }
