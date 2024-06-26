@@ -24,12 +24,12 @@ namespace HexCalc
             InitializeComponent();
             RenderDisplay();
             DisplayBits(binaryValue);
+            DisplayHexValues(hexValue);
         }
 
         private void DisplayBits(string binaryValue)
         {
             binaryValue = binaryValue.PadLeft(32, '0');
-            var customBlueColor = new SolidColorBrush(Color.FromRgb(0, 29, 153));
             for (int i = 0; i < 32; i++)
             {
                 string bitTextBlockName = "Bit" + i;
@@ -43,15 +43,29 @@ namespace HexCalc
             }
         }
 
+        private void DisplayHexValues(string hexValue)
+        {
+            hexValue = hexValue.PadLeft(8, '0');
+            for (int i = 0;i < 8; i++)
+            {
+                string hexValueTextBlockName = $"Hex{i}";
+                TextBlock hexValueTextBlock = (TextBlock)FindName(hexValueTextBlockName);
+                if (hexValueTextBlock != null)
+                {
+                    hexValueTextBlock.Text = hexValue[7 - i].ToString();
+                }
+            }
+
+        }
         private void RenderDisplay()
         {
             int bitIndex = 31;
             // splitting up into upper 16 bits and lower 16 bits
 
-            // Bits 31-16
+            // Renders bits 31-16
             for (int col = 0; col < 19; col++)
             {
-                
+
                 // row 0 will be the bit index
                 // row 1 will be the bit box
                 // row 2 will display the hex value of each set of 4 bits
@@ -101,6 +115,7 @@ namespace HexCalc
                 {
                     TextBlock hexValueTextBlock = new TextBlock
                     {
+                        Name = $"Hex{(32 - col) / 4}",
                         Margin = new Thickness(5),
                         HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Center,
@@ -109,19 +124,20 @@ namespace HexCalc
                     Grid.SetRow(hexValueTextBlock, 2);
                     Grid.SetColumn(hexValueTextBlock, col);
                     Grid.SetColumnSpan(hexValueTextBlock, 2);
+
+                    RegisterName(hexValueTextBlock.Name, hexValueTextBlock);
                     MainGrid.Children.Add(hexValueTextBlock);
                 }
-                
+
                 RegisterName(bitBoxValueTextBox.Name, bitBoxValueTextBox);
                 bitIndex--;
             }
-            // TODO: hex for each set of 4 bits
 
             bitIndex = 15;
-            // Bits 15-0
+            // Renders bits 15-0
             for (int col = 0; col < 19; col++)
             {
-                
+
                 // row 0 will be the bit index
                 // row 1 will be the bit box
                 // row 2 will display the hex value of each set of 4 bits
@@ -166,11 +182,14 @@ namespace HexCalc
                     VerticalAlignment = VerticalAlignment.Center
                 };
                 bitBoxBorder.Child = bitBoxValueTextBox;
+                RegisterName(bitBoxValueTextBox.Name, bitBoxValueTextBox);
 
+                // Renders hex value per 4 bits
                 if ((col - 1) % 5 == 0)
                 {
                     TextBlock hexValueTextBlock = new TextBlock
                     {
+                        Name = $"Hex{(16 - col) / 4}",
                         Margin = new Thickness(5),
                         HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Center,
@@ -179,10 +198,14 @@ namespace HexCalc
                     Grid.SetRow(hexValueTextBlock, 6);
                     Grid.SetColumn(hexValueTextBlock, col);
                     Grid.SetColumnSpan(hexValueTextBlock, 2);
+
+                    RegisterName(hexValueTextBlock.Name, hexValueTextBlock);
                     MainGrid.Children.Add(hexValueTextBlock);
+
                 }
 
-                RegisterName(bitBoxValueTextBox.Name, bitBoxValueTextBox);
+
+
                 bitIndex--;
             }
         }
