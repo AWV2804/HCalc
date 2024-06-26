@@ -45,18 +45,145 @@ namespace HexCalc
 
         private void RenderDisplay()
         {
-            int row, col;
-            for (int i = 0; i < 37; i++)
+            int bitIndex = 31;
+            // splitting up into upper 16 bits and lower 16 bits
+
+            // Bits 31-16
+            for (int col = 0; col < 19; col++)
             {
-                // get current row and col
-                row = i >= 16 ? 0 : 1;
-                col = i;
+                
+                // row 0 will be the bit index
+                // row 1 will be the bit box
+                // row 2 will display the hex value of each set of 4 bits
 
-                // need textblock for bit name
-                // Border for bit rep and bit inside
+                if (col == 4 || col == 9 || col == 14)
+                {
+                    continue;
+                }
 
-                TextBlock bitIndex = new TextBlock;
-                bitIndex.Margin = 25;
+                TextBlock bitIndexTextBox = new TextBlock
+                {
+                    Text = bitIndex.ToString(),
+                    Margin = new Thickness(5),
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+                Grid.SetRow(bitIndexTextBox, 0);
+                Grid.SetColumn(bitIndexTextBox, col);
+                MainGrid.Children.Add(bitIndexTextBox);
+
+                Border bitBoxBorder = new Border
+                {
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = Brushes.Black,
+                    Margin = new Thickness(2, 0, 2, 0)
+                };
+                Grid.SetRow(bitBoxBorder, 1);
+                Grid.SetColumn(bitBoxBorder, col);
+                MainGrid.Children.Add(bitBoxBorder);
+
+                TextBlock bitBoxValueTextBox = new TextBlock
+                {
+                    Name = $"Bit{bitIndex}",
+                    Width = 20,
+                    Height = 28,
+                    Text = "0",
+                    FontSize = 16,
+                    TextAlignment = TextAlignment.Center,
+                    FontFamily = new FontFamily("Consolas"),
+                    Background = Brushes.White,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+                bitBoxBorder.Child = bitBoxValueTextBox;
+
+                if ((col - 1) % 5 == 0)
+                {
+                    TextBlock hexValueTextBlock = new TextBlock
+                    {
+                        Margin = new Thickness(5),
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Text = "0"
+                    };
+                    Grid.SetRow(hexValueTextBlock, 2);
+                    Grid.SetColumn(hexValueTextBlock, col);
+                    Grid.SetColumnSpan(hexValueTextBlock, 2);
+                    MainGrid.Children.Add(hexValueTextBlock);
+                }
+                
+                RegisterName(bitBoxValueTextBox.Name, bitBoxValueTextBox);
+                bitIndex--;
+            }
+            // TODO: hex for each set of 4 bits
+
+            bitIndex = 15;
+            // Bits 15-0
+            for (int col = 0; col < 19; col++)
+            {
+                
+                // row 0 will be the bit index
+                // row 1 will be the bit box
+                // row 2 will display the hex value of each set of 4 bits
+
+                if (col == 4 || col == 9 || col == 14)
+                {
+                    continue;
+                }
+
+                TextBlock bitIndexTextBox = new TextBlock
+                {
+                    Text = bitIndex.ToString(),
+                    Margin = new Thickness(5),
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+                Grid.SetRow(bitIndexTextBox, 4);
+                Grid.SetColumn(bitIndexTextBox, col);
+                MainGrid.Children.Add(bitIndexTextBox);
+
+                Border bitBoxBorder = new Border
+                {
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = Brushes.Black,
+                    Margin = new Thickness(2, 0, 2, 0)
+                };
+                Grid.SetRow(bitBoxBorder, 5);
+                Grid.SetColumn(bitBoxBorder, col);
+                MainGrid.Children.Add(bitBoxBorder);
+
+                TextBlock bitBoxValueTextBox = new TextBlock
+                {
+                    Name = $"Bit{bitIndex}",
+                    Width = 20,
+                    Height = 28,
+                    Text = "0",
+                    FontSize = 16,
+                    TextAlignment = TextAlignment.Center,
+                    FontFamily = new FontFamily("Consolas"),
+                    Background = Brushes.White,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+                bitBoxBorder.Child = bitBoxValueTextBox;
+
+                if ((col - 1) % 5 == 0)
+                {
+                    TextBlock hexValueTextBlock = new TextBlock
+                    {
+                        Margin = new Thickness(5),
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Text = "0"
+                    };
+                    Grid.SetRow(hexValueTextBlock, 6);
+                    Grid.SetColumn(hexValueTextBlock, col);
+                    Grid.SetColumnSpan(hexValueTextBlock, 2);
+                    MainGrid.Children.Add(hexValueTextBlock);
+                }
+
+                RegisterName(bitBoxValueTextBox.Name, bitBoxValueTextBox);
+                bitIndex--;
             }
         }
     }

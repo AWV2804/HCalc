@@ -36,23 +36,23 @@ namespace HexCalc
 
             try
             {
-                int decValue;
+                uint decValue;
                 // Hexadecimal input
                 if (numInput.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
                 {
                     string hexValue = numInput.Substring(2);
-                    decValue = Convert.ToInt32(hexValue, 16);
+                    decValue = Convert.ToUInt32(hexValue, 16);
                 }
                 // Binary input
                 else if (numInput.StartsWith("0b", StringComparison.OrdinalIgnoreCase))
                 {
                     string binValue = numInput.Substring(2);
-                    decValue = Convert.ToInt32(binValue, 2);
+                    decValue = Convert.ToUInt32(binValue, 2);
                 }
                 // Decimal input
                 else
                 {
-                    decValue = Convert.ToInt32(numInput);
+                    decValue = Convert.ToUInt32(numInput);
                 }
 
                 DecTextBox.Text = decValue.ToString();
