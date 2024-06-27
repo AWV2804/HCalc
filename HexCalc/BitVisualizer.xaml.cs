@@ -23,8 +23,13 @@ namespace HexCalc
         {
             InitializeComponent();
             RenderDisplay();
+            DisplayValues(binaryValue);
+        }
+
+        private void DisplayValues(string binaryValue)
+        {
             DisplayBits(binaryValue);
-            DisplayHexValues(hexValue);
+            DisplayHexValues(binaryValue);
         }
 
         private void DisplayBits(string binaryValue)
@@ -57,7 +62,7 @@ namespace HexCalc
             }
 
         }
-   
+
         private void RenderDisplay()
         {
             int bitIndex = 31;
