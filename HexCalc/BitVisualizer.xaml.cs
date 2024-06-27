@@ -57,6 +57,7 @@ namespace HexCalc
             }
 
         }
+   
         private void RenderDisplay()
         {
             int bitIndex = 31;
@@ -208,6 +209,16 @@ namespace HexCalc
 
                 bitIndex--;
             }
+        }
+
+        private void LeftShiftButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RightShiftButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,8 +14,12 @@ namespace HexCalc
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    
     public partial class MainWindow : Window
     {
+        private string hexValue;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,7 +44,7 @@ namespace HexCalc
                 // Hexadecimal input
                 if (numInput.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
                 {
-                    string hexValue = numInput.Substring(2);
+                    hexValue = numInput.Substring(2);
                     decValue = Convert.ToUInt32(hexValue, 16);
                 }
                 // Binary input
@@ -54,7 +58,7 @@ namespace HexCalc
                 {
                     decValue = Convert.ToUInt32(numInput);
                 }
-
+                hexValue = decValue.ToString("X");
                 DecTextBox.Text = decValue.ToString();
                 HexTextBox.Text = "0x" + decValue.ToString("X");
                 BinTextBox.Text = Convert.ToString(decValue, 2);
@@ -82,7 +86,7 @@ namespace HexCalc
         private void LaunchBitVisualizer()
         {
             string binaryValue = BinTextBox.Text;
-            string hexValue = HexTextBox.Text;
+            //string hexValue = HexTextBox.Text;
             string decValue = DecTextBox.Text;
             BitVisualizer bitVisualizerWindow = new BitVisualizer(binaryValue, hexValue, decValue);
             bitVisualizerWindow.Show();

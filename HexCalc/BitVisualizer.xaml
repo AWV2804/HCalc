@@ -7,37 +7,45 @@
         mc:Ignorable="d"
         Title="BitVisualizer" Height="350" Width="600">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <Grid x:Name="MainGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <Grid>
+            <Grid x:Name="MainGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                    <ColumnDefinition Width="Auto" MinWidth="5"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1">
+                <Button Content="&lt;&lt;" Click="LeftShiftButton_Click" Width="35" Margin="0,0,5,10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Content=">>" Click="RightShiftButton_Click" Width="35" Margin="5,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
         </Grid>
     </ScrollViewer>
 </Window>
