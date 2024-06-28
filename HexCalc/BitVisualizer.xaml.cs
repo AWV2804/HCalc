@@ -19,20 +19,26 @@ namespace HexCalc
     /// </summary>
     public partial class BitVisualizer : Window
     {
+        private string hexValue = "";
+        private string binaryValue = "";
+        private string decValue = "";
         public BitVisualizer(string binaryValue, string hexValue, string decValue)
         {
+            this.binaryValue = binaryValue;
+            this.hexValue = hexValue;
+            this.decValue = decValue;
             InitializeComponent();
             RenderDisplay();
-            DisplayValues(binaryValue);
+            DisplayValues();
         }
 
-        private void DisplayValues(string binaryValue)
+        private void DisplayValues()
         {
-            DisplayBits(binaryValue);
-            DisplayHexValues(binaryValue);
+            DisplayBits();
+            DisplayHexValues();
         }
 
-        private void DisplayBits(string binaryValue)
+        private void DisplayBits()
         {
             binaryValue = binaryValue.PadLeft(32, '0');
             for (int i = 0; i < 32; i++)
@@ -48,7 +54,7 @@ namespace HexCalc
             }
         }
 
-        private void DisplayHexValues(string hexValue)
+        private void DisplayHexValues()
         {
             hexValue = hexValue.PadLeft(8, '0');
             for (int i = 0;i < 8; i++)
@@ -216,9 +222,15 @@ namespace HexCalc
             }
         }
 
+        private void UpdateValues(string newBinaryValue)
+        {
+            binaryValue = newBinaryValue;
+        }
         private void LeftShiftButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string leftShiftedBinaryValue = binaryValue.Substring(1);
+            leftShiftedBinaryValue = leftShiftedBinaryValue.PadRight(32, '0');
+            UpdateValues(leftShiftedBinaryValue);
         }
 
         private void RightShiftButton_Click(object sender, RoutedEventArgs e)

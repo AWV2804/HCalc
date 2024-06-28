@@ -14,12 +14,12 @@ namespace HexCalc
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
+    ///
 
-    
+
     public partial class MainWindow : Window
     {
-        private string hexValue;
+        private string hexValue = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -90,6 +90,13 @@ namespace HexCalc
             string decValue = DecTextBox.Text;
             BitVisualizer bitVisualizerWindow = new BitVisualizer(binaryValue, hexValue, decValue);
             bitVisualizerWindow.Show();
+        }
+
+        public static class Values
+        {
+            public static string hexValue { get; set; } = "";
+            public static string decValue { get; set; } = "";
+            public static string binValue { get; set; } = "";
         }
     }
 }
