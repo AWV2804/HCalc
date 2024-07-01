@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center">
             <TextBox Name="NumInputTextBox" Width="200" Margin="5" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,30,0" >
                 <TextBlock Text="Decimal:" FontWeight="Bold" Margin="5"/>
                 <TextBox Name="DecTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
                 <TextBlock Text="Hex:" FontWeight="Bold" Margin="5"/>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static HexCalc.MainWindow;
 
 namespace HexCalc
 {
@@ -19,54 +20,93 @@ namespace HexCalc
     /// </summary>
     public partial class BitVisualizer : Window
     {
-        private string hexValue = "";
-        private string binaryValue = "";
-        private string decValue = "";
+        private string paddedHexValue = "";
+        private string paddedBinaryValue = "";
+        private string paddedDecValue = "";
+
         public BitVisualizer()
         {
-            this.binaryValue = MainWindow.Values.binValue;
-            this.hexValue = MainWindow.Values.hexValue;
-            this.decValue = MainWindow.Values.decValue.ToString();
+            this.paddedDecValue = MainWindow.Values.decValue;
             InitializeComponent();
             RenderDisplay();
-            DisplayValues();
+            DisplayBitVisualizerValues();
         }
 
-        private void DisplayValues()
+        private void DisplayBitVisualizerValues()
         {
             DisplayBits();
             DisplayHexValues();
+            DisplayTextBoxValues();
         }
 
         private void DisplayBits()
         {
-            binaryValue = binaryValue.PadLeft(32, '0');
+            paddedBinaryValue = MainWindow.Values.binValue.PadLeft(32, '0');
             for (int i = 0; i < 32; i++)
             {
                 string bitTextBlockName = "Bit" + i;
                 TextBlock bitTextBlock = (TextBlock)FindName(bitTextBlockName);
                 if (bitTextBlock != null)
                 {
-                    bitTextBlock.Text = binaryValue[31 - i].ToString();
-                    bitTextBlock.Foreground = binaryValue[31 - i] == '1' ? Brushes.DarkOrange : Brushes.Black;
-                    bitTextBlock.FontWeight = binaryValue[31 - i] == '1' ? FontWeights.Bold : FontWeights.Normal;
+                    bitTextBlock.Text = paddedBinaryValue[31 - i].ToString();
+                    bitTextBlock.Foreground = paddedBinaryValue[31 - i] == '1' ? Brushes.DarkOrange : Brushes.Black;
+                    bitTextBlock.FontWeight = paddedBinaryValue[31 - i] == '1' ? FontWeights.Bold : FontWeights.Normal;
                 }
             }
         }
 
         private void DisplayHexValues()
         {
-            hexValue = hexValue.PadLeft(8, '0');
+            paddedHexValue = MainWindow.Values.hexValue.PadLeft(8, '0');
             for (int i = 0;i < 8; i++)
             {
                 string hexValueTextBlockName = $"Hex{i}";
                 TextBlock hexValueTextBlock = (TextBlock)FindName(hexValueTextBlockName);
                 if (hexValueTextBlock != null)
                 {
-                    hexValueTextBlock.Text = hexValue[7 - i].ToString();
+                    hexValueTextBlock.Text = paddedHexValue[7 - i].ToString();
                 }
             }
 
+        }
+
+        private void DisplayTextBoxValues()
+        {
+            BVBinTextBox.Text = paddedBinaryValue;
+            BVDecTextBox.Text = MainWindow.Values.decValue;
+            BVHexTextBox.Text = "0x" + paddedHexValue;
+        }
+        private void UpdateValues(string newBinaryValue)
+        {
+            uint decValue;
+
+            paddedBinaryValue = newBinaryValue;
+            MainWindow.Values.binValue = paddedBinaryValue;
+
+
+            paddedDecValue = Convert.ToUInt32(paddedBinaryValue, 2).ToString();
+            MainWindow.Values.decValue = paddedDecValue;
+
+            decValue = Convert.ToUInt32(paddedDecValue, 10);
+            paddedHexValue = decValue.ToString("X");
+            MainWindow.Values.hexValue = paddedHexValue;
+
+            DisplayBitVisualizerValues();
+            MainWindow.Instance.DisplayMainWindowValues(true);
+        }
+
+        private void LeftShiftButton_Click(object sender, RoutedEventArgs e)
+        {
+            string leftShiftedBinaryValue = paddedBinaryValue.Substring(1);
+            leftShiftedBinaryValue = leftShiftedBinaryValue.PadRight(32, '0');
+            UpdateValues(leftShiftedBinaryValue);
+        }
+
+        private void RightShiftButton_Click(object sender, RoutedEventArgs e)
+        {
+            string rightShiftedBinaryValue = paddedBinaryValue.Substring(0, paddedBinaryValue.Length - 1);
+            rightShiftedBinaryValue = rightShiftedBinaryValue.PadLeft(32, '0');
+            UpdateValues(rightShiftedBinaryValue);
         }
 
         private void RenderDisplay()
@@ -220,30 +260,6 @@ namespace HexCalc
 
                 bitIndex--;
             }
-        }
-
-        private void UpdateValues(string newBinaryValue)
-        {
-            binaryValue = newBinaryValue;
-            MainWindow.Values.binValue = binaryValue;
-
-            decValue = Convert.ToUInt32(binaryValue, 2).ToString();
-            MainWindow.Values.decValue = decValue.;
-
-            DisplayValues();
-        }
-        private void LeftShiftButton_Click(object sender, RoutedEventArgs e)
-        {
-            string leftShiftedBinaryValue = binaryValue.Substring(1);
-            leftShiftedBinaryValue = leftShiftedBinaryValue.PadRight(32, '0');
-            UpdateValues(leftShiftedBinaryValue);
-        }
-
-        private void RightShiftButton_Click(object sender, RoutedEventArgs e)
-        {
-            string rightShiftedBinaryValue = binaryValue.Substring(0, binaryValue.Length - 1);
-            rightShiftedBinaryValue = rightShiftedBinaryValue.PadLeft(32, '0');
-            UpdateValues(rightShiftedBinaryValue);
         }
     }
 }

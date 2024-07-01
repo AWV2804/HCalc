@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HexCalc" 
+        xmlns:local="clr-namespace:HexCalc"
         mc:Ignorable="d"
-        Title="BitVisualizer" Height="350" Width="600">
+        Title="BitVisualizer" Height="375" Width="600">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Grid>
-            <Grid x:Name="MainGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid x:Name="MainGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,15,0,0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" MinWidth="5"/>
                     <ColumnDefinition Width="Auto" MinWidth="5"/>
@@ -39,10 +39,19 @@
                     <RowDefinition Height="Auto" MinHeight="10"/>
                     <RowDefinition Height="Auto" MinHeight="10"/>
                     <RowDefinition Height="50"/>
-                    <RowDefinition Height="Auto" MinHeight="10"/>
                 </Grid.RowDefinitions>
             </Grid>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Margin="0,0,60,80">
+                <TextBlock Text="Decimal:" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="BVDecTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
+                <TextBlock Text="Hex:" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="BVHexTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Margin="0,0,50,50">
+                <TextBlock Text="Binary:" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="BVBinTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Margin="0,0,0,10">
                 <Button Content="&lt;&lt;" Click="LeftShiftButton_Click" Width="35" Margin="0,0,5,10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <Button Content=">>" Click="RightShiftButton_Click" Width="35" Margin="5,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
