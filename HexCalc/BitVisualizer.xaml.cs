@@ -22,11 +22,11 @@ namespace HexCalc
         private string hexValue = "";
         private string binaryValue = "";
         private string decValue = "";
-        public BitVisualizer(string binaryValue, string hexValue, string decValue)
+        public BitVisualizer()
         {
-            this.binaryValue = binaryValue;
-            this.hexValue = hexValue;
-            this.decValue = decValue;
+            this.binaryValue = MainWindow.Values.binValue;
+            this.hexValue = MainWindow.Values.hexValue;
+            this.decValue = MainWindow.Values.decValue.ToString();
             InitializeComponent();
             RenderDisplay();
             DisplayValues();
@@ -225,6 +225,12 @@ namespace HexCalc
         private void UpdateValues(string newBinaryValue)
         {
             binaryValue = newBinaryValue;
+            MainWindow.Values.binValue = binaryValue;
+
+            decValue = Convert.ToUInt32(binaryValue, 2).ToString();
+            MainWindow.Values.decValue = decValue.;
+
+            DisplayValues();
         }
         private void LeftShiftButton_Click(object sender, RoutedEventArgs e)
         {
@@ -235,7 +241,9 @@ namespace HexCalc
 
         private void RightShiftButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string rightShiftedBinaryValue = binaryValue.Substring(0, binaryValue.Length - 1);
+            rightShiftedBinaryValue = rightShiftedBinaryValue.PadLeft(32, '0');
+            UpdateValues(rightShiftedBinaryValue);
         }
     }
 }

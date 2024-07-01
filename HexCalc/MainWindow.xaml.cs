@@ -19,7 +19,7 @@ namespace HexCalc
 
     public partial class MainWindow : Window
     {
-        private string hexValue = "";
+        //private string hexValue = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -44,24 +44,27 @@ namespace HexCalc
                 // Hexadecimal input
                 if (numInput.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
                 {
-                    hexValue = numInput.Substring(2);
-                    decValue = Convert.ToUInt32(hexValue, 16);
+                    Values.hexValue = numInput.Substring(2);
+                    decValue = Convert.ToUInt32(Values.hexValue, 16);
                 }
                 // Binary input
                 else if (numInput.StartsWith("0b", StringComparison.OrdinalIgnoreCase))
                 {
-                    string binValue = numInput.Substring(2);
-                    decValue = Convert.ToUInt32(binValue, 2);
+                    Values.binValue = numInput.Substring(2);
+                    decValue = Convert.ToUInt32(Values.binValue, 2);
                 }
                 // Decimal input
                 else
                 {
                     decValue = Convert.ToUInt32(numInput);
                 }
-                hexValue = decValue.ToString("X");
-                DecTextBox.Text = decValue.ToString();
-                HexTextBox.Text = "0x" + decValue.ToString("X");
-                BinTextBox.Text = Convert.ToString(decValue, 2);
+                Values.hexValue = Values.decValue.ToString("X");
+                Values.binValue = Convert.ToString(decValue, 2);
+                Values.decValue = decValue.ToString();
+
+                DecTextBox.Text = Values.decValue;
+                HexTextBox.Text = "0x" + Values.hexValue;
+                BinTextBox.Text = Values.binValue;
             }
             catch (Exception)
             {
@@ -88,7 +91,7 @@ namespace HexCalc
             string binaryValue = BinTextBox.Text;
             //string hexValue = HexTextBox.Text;
             string decValue = DecTextBox.Text;
-            BitVisualizer bitVisualizerWindow = new BitVisualizer(binaryValue, hexValue, decValue);
+            BitVisualizer bitVisualizerWindow = new BitVisualizer();
             bitVisualizerWindow.Show();
         }
 
