@@ -10,6 +10,7 @@ env:
 
 jobs:
   deploy:
+    permissions: write-all
     runs-on: windows-latest
 
     steps:
@@ -33,11 +34,13 @@ jobs:
     - name: Create the release
       id: create_release
       uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }} 
+        release_name: ${{ github.ref }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Upload the .exe to the release
       uses: csexton/release-asset-action@v2
