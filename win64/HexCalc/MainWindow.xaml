@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HexCalc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Icon="hexcalc_logo.ico">
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center">
             <TextBox Name="NumInputTextBox" Width="200" Margin="5" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown"/>
