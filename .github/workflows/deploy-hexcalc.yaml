@@ -1,0 +1,24 @@
+name: "Deploy HexCalc"
+
+on:
+    push:
+        tags:
+        - "class-commands/v*"
+
+env:
+    PROJ_PATH: HCalc\win64\HexCalc\HexCalc.csproj
+jobs:
+    deploy:
+        runs-on: windows-latest
+        steps:
+        - uses: actions/checkout@v2
+
+        - uses: actions/setup-dotnet@v3
+          with:
+            dotnet-version: 6.0.x
+        - run: dotnet restore ${{env.PROJ_PATH}}
+
+        - run: dotnet build ${{env.PROJ_PATH}} -c Release --no-restore
+
+        - run: dotnet publish ${{env.PROJ_PATH}} -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true --no-build
+  
