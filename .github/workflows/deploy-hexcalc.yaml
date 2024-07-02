@@ -1,9 +1,9 @@
 name: "Deploy HexCalc"
 
 on:
-    push:
-        tags:
-        - "HexCalc/v*"
+  push:
+    branches:
+      - main
 
 env:
     PROJ_PATH: win64\HexCalc\HexCalc.csproj
