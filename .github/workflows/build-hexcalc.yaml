@@ -1,4 +1,4 @@
-name: "Deploy HexCalc"
+name: "Build HexCalc"
 
 on:
   push:
@@ -29,3 +29,5 @@ jobs:
 
     - name: Publish the project
       run: dotnet publish ${{ env.PROJ_PATH }} -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+
+
