@@ -39,10 +39,9 @@ jobs:
         tag_name: ${{ github.ref }}
         release_name: ${{ github.ref }} 
         
-    - name: Create the .exe
-    - uses: csexton/release-asset-action@v2
+    - name: Upload the .exe to the release
+      uses: csexton/release-asset-action@v2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         pattern: win64/HexCalc/bin/Release/net6.0-windows7.0/win-x64/publish/*.exe
         release-url: ${{ steps.create_release.outputs.upload_url }}
-    
