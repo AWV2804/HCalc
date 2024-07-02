@@ -1,0 +1,48 @@
+name: "Deploy HexCalc"
+
+on:
+  push:
+    tags:
+      - "HexCalc/v*"
+
+env:
+  PROJ_PATH: win64/HexCalc/HexCalc.csproj
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.PROJ_PATH }}
+
+    - name: Build the project
+      run: dotnet build ${{ env.PROJ_PATH }} -c Release --no-restore
+
+    - name: Publish the project
+      run: dotnet publish ${{ env.PROJ_PATH }} -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true
+
+    - name: Create the release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }} 
+        
+    - name: Create the .exe
+    - uses: csexton/release-asset-action@v2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        pattern: win64/HexCalc/bin/Release/net6.0-windows7.0/win-x64/publish/*.exe
+        release-url: ${{ steps.create_release.outputs.upload_url }}
+    
