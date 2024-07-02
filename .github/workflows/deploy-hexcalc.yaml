@@ -6,19 +6,26 @@ on:
       - main
 
 env:
-    PROJ_PATH: win64\HexCalc\HexCalc.csproj
+  PROJ_PATH: win64/HexCalc/HexCalc.csproj
+
 jobs:
-    deploy:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v4
+  deploy:
+    runs-on: windows-latest
 
-        - uses: actions/setup-dotnet@v4
-          with:
-            dotnet-version: 6.0.x
-        - run: dotnet restore ${{env.PROJ_PATH}}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-        - run: dotnet build ${{env.PROJ_PATH}} -c Release --no-restore
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
 
-        - run: dotnet publish ${{env.PROJ_PATH}} -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true --no-build
-  
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.PROJ_PATH }}
+
+    - name: Build the project
+      run: dotnet build ${{ env.PROJ_PATH }} -c Release --no-restore
+
+    - name: Publish the project
+      run: dotnet publish ${{ env.PROJ_PATH }} -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
