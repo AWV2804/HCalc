@@ -6,7 +6,7 @@ on:
         - "HexCalc/v*"
 
 env:
-    PROJ_PATH: HCalc\win64\HexCalc\HexCalc.csproj
+    PROJ_PATH: win64\HexCalc\HexCalc.csproj
 jobs:
     deploy:
         runs-on: windows-latest
