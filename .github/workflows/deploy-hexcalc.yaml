@@ -3,7 +3,7 @@ name: "Deploy HexCalc"
 on:
     push:
         tags:
-        - "class-commands/v*"
+        - "HexCalc/v*"
 
 env:
     PROJ_PATH: HCalc\win64\HexCalc\HexCalc.csproj
