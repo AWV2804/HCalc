@@ -63,14 +63,29 @@ namespace HexCalc
                     // Hexadecimal input
                     if (numInput.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
                     {
-                        Values.hexValue = numInput.Substring(2);
-                        decValue = Convert.ToUInt32(Values.hexValue, 16);
+                        if (numInput.Length > 2)
+                        {
+                            Values.hexValue = numInput.Substring(2);
+                            decValue = Convert.ToUInt32(Values.hexValue, 16);
+                        }
+                        else
+                        {
+                            return;
+                        }
+
                     }
                     // Binary input
                     else if (numInput.StartsWith("0b", StringComparison.OrdinalIgnoreCase))
                     {
-                        Values.binValue = numInput.Substring(2);
-                        decValue = Convert.ToUInt32(Values.binValue, 2);
+                        if (numInput.Length > 2)
+                        {
+                            Values.binValue = numInput.Substring(2);
+                            decValue = Convert.ToUInt32(Values.binValue, 2);
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     // Decimal input
                     else
