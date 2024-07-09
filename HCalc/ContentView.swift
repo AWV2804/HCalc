@@ -98,12 +98,49 @@ struct ContentView: View {
                     }
                     else
                     {
-                        
+                        //TODO: handle error
+                    }
+                }
+                else if (numInput.lowercased.hasPrefix("0b"))
+                {
+                    binValue = String(numInput.dropFirst(2))
+                    if let decValueUnwrapped = UInt32(binValue, radix: 2)
+                    {
+                        decValue = decValueUnwrapped
+                    }
+                    else
+                    {
+                        //TODO: handle error
+                    }
+                }
+                else
+                {
+                    if let decValueUnwrapped = UInt32(numInput)
+                    {
+                        decValue = decValueUnwrapped
+                    }
+                    else
+                    {
+                        //TODO: handle error
                     }
                 }
             }
+            else
+            {
+                if let decValueUnwrapped = UInt32(Values.decValue)
+                {
+                    decValue = decValueUnwrapped
+                }
+                else
+                {
+                    //TODO: handle error
+                }
+
+                Values.hexValue = String(decValue, radix: 16)
+                Values.binValue = String(decValue, radix: 2)
+                Values.decValue = String(decValue)
+            }
         }
-        
     }
 
     func launchBitVisualizer() {
