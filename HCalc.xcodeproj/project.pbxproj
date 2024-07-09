@@ -15,6 +15,7 @@
 		0CFC37DF2C23B73A0002AC53 /* HCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC37DE2C23B73A0002AC53 /* HCalcUITests.swift */; };
 		0CFC37E12C23B73A0002AC53 /* HCalcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC37E02C23B73A0002AC53 /* HCalcUITestsLaunchTests.swift */; };
 		0CFC37EE2C23DC2D0002AC53 /* BitsVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC37ED2C23DC2D0002AC53 /* BitsVisualizer.swift */; };
+		0CFC46D12C3CF62E00D3D978 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC46D02C3CF62E00D3D978 /* Values.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0CFC37DE2C23B73A0002AC53 /* HCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCalcUITests.swift; sourceTree = "<group>"; };
 		0CFC37E02C23B73A0002AC53 /* HCalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0CFC37ED2C23DC2D0002AC53 /* BitsVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsVisualizer.swift; sourceTree = "<group>"; };
+		0CFC46D02C3CF62E00D3D978 /* Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				0CFC37C62C23B73A0002AC53 /* Assets.xcassets */,
 				0CFC37CB2C23B73A0002AC53 /* HCalc.entitlements */,
 				0CFC37C82C23B73A0002AC53 /* Preview Content */,
+				0CFC46D02C3CF62E00D3D978 /* Values.swift */,
 			);
 			path = HCalc;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				0CFC37C52C23B7380002AC53 /* ContentView.swift in Sources */,
 				0CFC37C32C23B7380002AC53 /* HCalcApp.swift in Sources */,
+				0CFC46D12C3CF62E00D3D978 /* Values.swift in Sources */,
 				0CFC37EE2C23DC2D0002AC53 /* BitsVisualizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,10 +429,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HCalc/HCalc.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HCalc/Preview Content\"";
+				DEVELOPMENT_TEAM = N9TTYVNX53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -450,10 +456,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HCalc/HCalc.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HCalc/Preview Content\"";
+				DEVELOPMENT_TEAM = N9TTYVNX53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";

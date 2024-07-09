@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct HCalcApp: App {
+    var values = Values()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(values)
+                .frame(width: 800, height: 450)
         }
     }
 }
