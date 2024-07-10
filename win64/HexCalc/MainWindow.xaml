@@ -5,11 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HexCalc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="HexCalc" Height="450" Width="800"
         Icon="hexcalc_logo.ico">
-    <Grid>
-        <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center">
-            <TextBox Name="NumInputTextBox" Width="200" Margin="5" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown"/>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" IsMainMenu="True">
+            <MenuItem Header="_File" Margin="10,2,2,2">
+                <MenuItem Header="New" Click="File_New_Click" />
+            </MenuItem>
+            <MenuItem Header="_Edit" Margin="2">
+                <MenuItem Header="Input Type" >
+                    <MenuItem Header="Unsigned 32 Bit" Tag="U32B" Click="Edit_InputType_Click" IsCheckable="True" />
+                    <MenuItem Header="Signed 4 Bit" Tag="S4B" Click="Edit_InputType_Click" IsCheckable="True" />
+                    <MenuItem Header="Signed 8 Bit" Tag="S8B" Click="Edit_InputType_Click" IsCheckable="True" />
+                    <MenuItem Header="Signed 16 Bit" Tag="S16B" Click="Edit_InputType_Click" IsCheckable="True" />
+                    <MenuItem Header="Signed 32 Bit" Tag="S32B" Click="Edit_InputType_Click" IsCheckable="True" />
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_View" Margin="2">
+
+            </MenuItem>
+            <MenuItem Header="_Help" Margin="2">
+                <MenuItem Header="About" Click="Help_About_Click"/>
+                <MenuItem Header="Documentation" Click="Help_Documentation_Click"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="110,0,0,0">
+                <TextBox Name="NumInputTextBox" Width="200" Margin="5" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown" Height="20"/>
+                <ComboBox x:Name="RadixBox" Margin="5" Width="100"
+                      SelectionChanged="RadixBox_SelectionChanged" Height="20">
+                <ComboBoxItem Content="Binary" Tag="2"/>
+                <ComboBoxItem Content="Octal" Tag="8"/>
+                <ComboBoxItem Content="Decimal" Tag="10"/>
+                <ComboBoxItem Content="Hexadecimal" Tag="16"/>
+                </ComboBox>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,30,0" >
                 <TextBlock Text="Decimal:" FontWeight="Bold" Margin="5"/>
                 <TextBox Name="DecTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
@@ -18,7 +48,7 @@
                 <TextBlock Text="Binary:" FontWeight="Bold" Margin="5"/>
                 <TextBox Name="BinTextBox" IsReadOnly="True" Margin="5" MinWidth="50"/>
             </StackPanel>
-            <Button Content="Launch Bit Visualizer" Click="LaunchBitVisualizerButton_Click" Width="200" Margin="5"/>
+            <Button Content="Launch Bit Visualizer" Click="LaunchBitVisualizerButton_Click" Width="200" Margin="5" Height="20"/>
         </StackPanel>
-    </Grid>
+    </DockPanel>
 </Window>

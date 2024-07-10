@@ -104,7 +104,7 @@ namespace HexCalc
 
                 DecTextBox.Text = Values.decValue;
                 HexTextBox.Text = "0x" + Values.hexValue;
-                BinTextBox.Text = Values.binValue;
+                BinTextBox.Text = Values.binValue.Length.ToString() + "\'b" + Values.binValue;
             }
             catch (Exception exception)
             {
@@ -139,6 +139,29 @@ namespace HexCalc
             bitVisualizerWindow.Show();
         }
 
+        private void RadixBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
+
+        private void File_New_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Edit_InputType_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Help_About_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Help_Documentation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
