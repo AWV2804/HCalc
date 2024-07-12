@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HexCalc (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "HexCalc (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

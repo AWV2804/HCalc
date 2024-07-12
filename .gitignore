@@ -1,0 +1,71 @@
+# Ignore Visual Studio temporary files, build results, and
+# build directories.
+[Bb]in/
+[Oo]bj/
+
+# Ignore user-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows shortcuts
+*.lnk
+
+# Files built by Visual Studio
+*.log
+.vscode/
+
+# Ignore database files
+*.mdf
+*.ldf
+
+# Ignore code coverage results
+*.coverage
+*.coveragexml
+
+# Include auto-generated AssemblyInfo.cs but exclude any user edits
+!Properties/AssemblyInfo.cs
+
+# User-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows shortcuts
+*.lnk
+
+# DotNet specific files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# RIA/Silverlight projects
+Generated_Code/
