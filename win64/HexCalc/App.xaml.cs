@@ -47,7 +47,6 @@ namespace HexCalc
             m_window.SetTitleBar(m_window.CustomTitleBar);
             m_window.ApplyBackdrop();
             m_window.Activate();
-
         }
 
         private Window m_window;
