@@ -159,7 +159,6 @@ namespace HexCalc
         {
             DisplayBits();
             DisplayHexValues();
-            DisplayTextBoxValues();
         }
 
         private void DisplayBits()
@@ -218,12 +217,7 @@ namespace HexCalc
 
         }
 
-        private void DisplayTextBoxValues()
-        {
-            BVBinTextBox.Text = paddedBinaryValue;
-            BVDecTextBox.Text = MainWindow.Values.decValue;
-            BVHexTextBox.Text = "0x" + paddedHexValue;
-        }
+
 
         private void UpdateValues(string newBinaryValue)
         {
