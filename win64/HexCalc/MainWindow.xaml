@@ -13,16 +13,12 @@
     </Window.SystemBackdrop>
     <Grid>
         <Grid x:Name="AppTitleBar" Background="Transparent" VerticalAlignment="Top">
-            <Image Source="Assets/hexcalc_logo_hires.ico"
-                   HorizontalAlignment="Left"
-                   Width="16" Height="16"
-                   Margin="8,0"/>
             <TextBlock x:Name="AppTitleTextBlock" Text="HexCalc"
                        TextWrapping="NoWrap"
                        VerticalAlignment="Center"
                        Margin="28,10,0,0"/>
         </Grid>
-        <StackPanel Margin="0,30,0,0" Orientation="Vertical" HorizontalAlignment="Center">
+        <StackPanel Margin="30,30,0,0" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox Name="NumInputTextBox" Width="200" Margin="0" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown"/>
             <Grid Margin="0,0,40,0" HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
@@ -33,7 +29,7 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Decimal:" FontWeight="Bold" Margin="0,25,5,0" Grid.Column="0"/>
+                <TextBlock Text="Decimal:" FontWeight="Bold" Margin="0,25,5,0"  Grid.Column="0"/>
                 <TextBox Name="DecTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" MinHeight="1" Grid.Column="1"/>
                 <TextBlock Text="Hex:" FontWeight="Bold" Margin="5,25,5,0" Grid.Column="2"/>
                 <TextBox Name="HexTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" Grid.Column="3"/>
@@ -42,7 +38,7 @@
             </Grid>
         </StackPanel>
         <Grid>
-            <Grid x:Name="MainGrid" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,15,0,80" >
+            <Grid x:Name="MainGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,50,50,0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" MinWidth="5"/>
                     <ColumnDefinition Width="Auto" MinWidth="5"/>
@@ -68,7 +64,7 @@
                     <RowDefinition Height="Auto" MinHeight="10"/>
                     <RowDefinition Height="Auto" MinHeight="10"/>
                     <RowDefinition Height="Auto" MinHeight="10"/>
-                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="10"/>
                     <RowDefinition Height="Auto" MinHeight="10"/>
                     <RowDefinition Height="Auto" MinHeight="10"/>
                     <RowDefinition Height="Auto" MinHeight="10"/>

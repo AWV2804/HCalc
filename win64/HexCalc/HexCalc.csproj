@@ -14,6 +14,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\hexcalc_logo_hires.ico" />
+    <Content Remove="Assets\UserControl1.xaml" />
+    <Content Remove="Assets\UserControl1.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Display-Bold.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Display-Light.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Display-Semibold.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Display-Semilight.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Display.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Small-Bold.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Small-Light.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Small-Semibold.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Small-Semilight.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Small.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Text-Bold.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Text-Light.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Text-Semibold.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Text-Semilight.ttf" />
+    <None Remove="Assets\Fonts\Segoe-UI-Variable-Static-Text.ttf" />
+    <None Remove="Assets\Fonts\SegoeUI-VF.ttf" />
+    <None Remove="Assets\UserControl1.xaml" />
+    <None Remove="BitVisualizer.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +61,66 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Display-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Display-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Display-Semibold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Display-Semilight.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Display.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Small-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Small-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Small-Semibold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Small-Semilight.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Small.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Text-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Text-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Text-Semibold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Text-Semilight.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\Segoe-UI-Variable-Static-Text.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Fonts\SegoeUI-VF.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="BitVisualizer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Assets\UserControl1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <!--
