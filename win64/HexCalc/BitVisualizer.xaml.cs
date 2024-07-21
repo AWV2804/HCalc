@@ -32,12 +32,13 @@ namespace HexCalc
         {
 
             this.InitializeComponent();
-            RenderDisplay();
+            
             this.gridName = gridName;
             this.bitVisualizerGrid = (Grid)this.FindName(gridName);
+            RenderDisplay();
         }
 
-        private void DisplayBitVisualizerValues()
+        public void DisplayBitVisualizerValues()
         {
             DisplayBits();
             DisplayHexValues();

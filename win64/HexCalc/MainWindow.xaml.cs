@@ -30,15 +30,18 @@ namespace HexCalc
     public sealed partial class MainWindow : Window
     {
         private static MainWindow instance;
-
+        private BitVisualizer bitVisualizer;
 
         public MainWindow()
         {
             this.InitializeComponent();
-            RenderDisplay();
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
             instance = this;
+
+            // Initialize BitVisualizer1
+            bitVisualizer = new BitVisualizer("BitVisualizerGrid1");
+            BitVisualizerContainer.Children.Add(bitVisualizer);
         }
 
         public static MainWindow Instance
@@ -79,17 +82,15 @@ Value Entry Methods
         {
             DisplayMainWindowValues(false);
             //TODO: call function to update bit visualizer
-            DisplayBitVisualizerValues();
+            bitVisualizer.DisplayBitVisualizerValues();
         }
 
         private void NumInputTextBox_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            // TODO: prob dont need this function
-            DisplayMainWindowValues(false);
             if (e.Key == VirtualKey.Enter)
             {
-                // function to update bit visualizer
-                DisplayBitVisualizerValues();
+                DisplayMainWindowValues(false);
+                bitVisualizer.DisplayBitVisualizerValues();
             }
         }
 
@@ -165,9 +166,9 @@ Value Entry Methods
             }
         }
 
-/*----------------------------------------------------------------------------
-Bit Visualizer Methods
-----------------------------------------------------------------------------*/
+        /*----------------------------------------------------------------------------
+        Bit Visualizer Methods
+        ----------------------------------------------------------------------------*/
 
 
 
