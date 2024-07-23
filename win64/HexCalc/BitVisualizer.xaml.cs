@@ -27,14 +27,19 @@ namespace HexCalc
         private string paddedDecValue = "";
         private string gridName = "";
         private Grid bitVisualizerGrid = null;
+        private static int bitVisualizerCount = 0;
+        private static List<BitVisualizer> bitVisualizers = new List<BitVisualizer>();
 
         public BitVisualizer(string gridName)
         {
 
             this.InitializeComponent();
-            
+            bitVisualizerCount++;
             this.gridName = gridName;
+            this.BitVisualizerGrid.Name = gridName;
             this.bitVisualizerGrid = (Grid)this.FindName(gridName);
+            this.DataContext = this;
+            bitVisualizers.Add(this);
             RenderDisplay();
         }
 
