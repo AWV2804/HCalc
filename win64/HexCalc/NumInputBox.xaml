@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="HexCalc.NumInputBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HexCalc"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Name="NumInputBoxControl">
+
+    <Grid>
+        <StackPanel x:Name="NumInputBox" Margin="30,50,0,0" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox Name="NumInputTextBox" Width="200" Margin="0" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown"/>
+            <Grid Margin="0,0,40,0" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Decimal:" FontWeight="Bold" Margin="0,25,5,0"  Grid.Column="0"/>
+                <TextBox Name="DecTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" MinHeight="1" Grid.Column="1"/>
+                <TextBlock Text="Hex:" FontWeight="Bold" Margin="5,25,5,0" Grid.Column="2"/>
+                <TextBox Name="HexTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" Grid.Column="3"/>
+                <TextBlock Text="Binary:" FontWeight="Bold" Margin="5,25,5,0" Grid.Column="4"/>
+                <TextBox Name="BinTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" Grid.Column="5"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

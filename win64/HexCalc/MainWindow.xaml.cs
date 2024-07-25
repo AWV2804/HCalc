@@ -30,6 +30,9 @@ namespace HexCalc
     public sealed partial class MainWindow : Window
     {
         private static MainWindow instance;
+        private NumInputBox numInputBox1;
+        private NumInputBox numInputBox2;
+        private NumInputBox numInputBoxR;
         private BitVisualizer bitVisualizer1;
         private BitVisualizer bitVisualizer2;
         private BitVisualizer bitVisualizerR;
@@ -40,6 +43,7 @@ namespace HexCalc
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
             instance = this;
+            // Initialize NumInputBox1
 
             // Initialize BitVisualizer1
             bitVisualizer1 = new BitVisualizer("BitVisualizerGrid1");
@@ -85,7 +89,7 @@ Value Entry Methods
             DisplayMainWindowValues(false);
             //TODO: call function to update bit visualizer
             bitVisualizer1.DisplayBitVisualizerValues();
-            bitVisualizer2.DisplayBitVisualizerValues();
+            //bitVisualizer2.DisplayBitVisualizerValues();
         }
 
         private void NumInputTextBox_KeyDown(object sender, KeyRoutedEventArgs e)

@@ -36,6 +36,7 @@
     <None Remove="Assets\Fonts\SegoeUI-VF.ttf" />
     <None Remove="Assets\UserControl1.xaml" />
     <None Remove="BitVisualizer.xaml" />
+    <None Remove="NumInputBox.xaml" />
   </ItemGroup>
 
   <ItemGroup>

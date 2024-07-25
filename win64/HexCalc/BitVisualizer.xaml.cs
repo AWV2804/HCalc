@@ -27,21 +27,20 @@ namespace HexCalc
         private string paddedDecValue = "";
         private string gridName = "";
         private Grid bitVisualizerGrid = null;
-        private static int bitVisualizerCount = 0;
         private static List<BitVisualizer> bitVisualizers = new List<BitVisualizer>();
 
-        public BitVisualizer(string gridName)
+        public BitVisualizer(string gridName, Input bitVisualizer_e)
         {
 
             this.InitializeComponent();
-            bitVisualizerCount++;
+
             this.gridName = gridName;
             this.BitVisualizerGrid.Name = gridName;
             this.bitVisualizerGrid = (Grid)this.FindName(gridName);
             this.DataContext = this;
             bitVisualizers.Add(this);
             RenderDisplay();
-            AdjustPositions();
+            AdjustBitVisualizerPositions();
         }
 
         public void DisplayBitVisualizerValues()
@@ -298,13 +297,13 @@ namespace HexCalc
                 bitIndex--;
             }
         }
-    
-        private void AdjustPositions()
+
+        private void AdjustBitVisualizerPositions()
         {
             if (bitVisualizers.Count == 3)
             {
                 bitVisualizers[0].BitVisualizerGrid.VerticalAlignment = VerticalAlignment.Top;
-                bitVisualizers[0].BitVisualizerGrid.Margin = new Thickness(0, 0, 0, 90);
+                bitVisualizers[0].BitVisualizerGrid.Margin = new Thickness(0, 0, 50, 450);
                 bitVisualizers[1].BitVisualizerGrid.VerticalAlignment = VerticalAlignment.Center;
                 bitVisualizers[2].BitVisualizerGrid.VerticalAlignment = VerticalAlignment.Bottom;
             }
