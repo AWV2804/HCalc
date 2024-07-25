@@ -85,6 +85,7 @@ Value Entry Methods
             DisplayMainWindowValues(false);
             //TODO: call function to update bit visualizer
             bitVisualizer1.DisplayBitVisualizerValues();
+            bitVisualizer2.DisplayBitVisualizerValues();
         }
 
         private void NumInputTextBox_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -171,7 +172,9 @@ Value Entry Methods
         private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
             bitVisualizer2 = new BitVisualizer("BitVisualizerGrid2");
+            BitVisualizerContainer.Children.Add(bitVisualizer2);
             bitVisualizerR = new BitVisualizer("BitVisualizerGridR");
+            BitVisualizerContainer.Children.Add(bitVisualizerR);
         }
 
 

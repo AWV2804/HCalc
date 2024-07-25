@@ -41,6 +41,7 @@ namespace HexCalc
             this.DataContext = this;
             bitVisualizers.Add(this);
             RenderDisplay();
+            AdjustPositions();
         }
 
         public void DisplayBitVisualizerValues()
@@ -295,6 +296,17 @@ namespace HexCalc
                 }
 
                 bitIndex--;
+            }
+        }
+    
+        private void AdjustPositions()
+        {
+            if (bitVisualizers.Count == 3)
+            {
+                bitVisualizers[0].BitVisualizerGrid.VerticalAlignment = VerticalAlignment.Top;
+                bitVisualizers[0].BitVisualizerGrid.Margin = new Thickness(0, 0, 0, 90);
+                bitVisualizers[1].BitVisualizerGrid.VerticalAlignment = VerticalAlignment.Center;
+                bitVisualizers[2].BitVisualizerGrid.VerticalAlignment = VerticalAlignment.Bottom;
             }
         }
     }
