@@ -10,7 +10,7 @@
     x:Name="NumInputBoxControl">
 
     <Grid>
-        <StackPanel x:Name="NumInputBox" Margin="30,50,0,0" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <StackPanel x:Name="NumInputBox_S" Margin="30,50,0,0" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox Name="NumInputTextBox" Width="200" Margin="0" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown"/>
             <Grid Margin="0,0,40,0" HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>

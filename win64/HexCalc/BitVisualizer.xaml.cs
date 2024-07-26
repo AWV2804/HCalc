@@ -27,7 +27,7 @@ namespace HexCalc
         private string paddedDecValue = "";
         private string gridName = "";
         private Grid bitVisualizerGrid = null;
-        private static List<BitVisualizer> bitVisualizers = new List<BitVisualizer>();
+        public static List<BitVisualizer> bitVisualizers = new List<BitVisualizer>();
 
         public BitVisualizer(string gridName, Input bitVisualizer_e)
         {
@@ -65,7 +65,7 @@ namespace HexCalc
             }
 
             // Extract value and fill in bit view
-            paddedBinaryValue = MainWindow.Values.binValue.PadLeft(32, '0');
+            paddedBinaryValue = Values.binValue.PadLeft(32, '0');
             for (int i = 0; i < 32; i++)
             {
                 string bitTextBlockName = "Bit" + i;
@@ -100,7 +100,7 @@ namespace HexCalc
                 }
             }
 
-            paddedHexValue = MainWindow.Values.hexValue.PadLeft(8, '0');
+            paddedHexValue = Values.hexValue.PadLeft(8, '0');
             for (int i = 0; i < 8; i++)
             {
                 string hexValueTextBlockName = $"Hex{i}";
@@ -118,18 +118,18 @@ namespace HexCalc
             uint decValue;
 
             paddedBinaryValue = newBinaryValue;
-            MainWindow.Values.binValue = paddedBinaryValue;
+            Values.binValue = paddedBinaryValue;
 
 
             paddedDecValue = Convert.ToUInt32(paddedBinaryValue, 2).ToString();
-            MainWindow.Values.decValue = paddedDecValue;
+            Values.decValue = paddedDecValue;
 
             decValue = Convert.ToUInt32(paddedDecValue, 10);
             paddedHexValue = decValue.ToString("X");
-            MainWindow.Values.hexValue = paddedHexValue;
+            Values.hexValue = paddedHexValue;
 
             DisplayBitVisualizerValues();
-            MainWindow.Instance.DisplayMainWindowValues(true);
+            //FIXME: MainWindow.Instance.DisplayMainWindowValues(true);
         }
 
         private void LeftShiftButton_Click(object sender, RoutedEventArgs e)

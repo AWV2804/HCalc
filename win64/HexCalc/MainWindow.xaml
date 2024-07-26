@@ -18,25 +18,15 @@
                        VerticalAlignment="Center"
                        Margin="28,10,0,0"/>
         </Grid>
-        <StackPanel Margin="30,50,0,0" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox Name="NumInputTextBox" Width="200" Margin="0" TextChanged="NumInputTextBox_TextChanged" KeyDown="NumInputTextBox_KeyDown"/>
-            <Grid Margin="0,0,40,0" HorizontalAlignment="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="Decimal:" FontWeight="Bold" Margin="0,25,5,0"  Grid.Column="0"/>
-                <TextBox Name="DecTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" MinHeight="1" Grid.Column="1"/>
-                <TextBlock Text="Hex:" FontWeight="Bold" Margin="5,25,5,0" Grid.Column="2"/>
-                <TextBox Name="HexTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" Grid.Column="3"/>
-                <TextBlock Text="Binary:" FontWeight="Bold" Margin="5,25,5,0" Grid.Column="4"/>
-                <TextBox Name="BinTextBox" IsReadOnly="True" Margin="5,20,10,20" MinWidth="50" Grid.Column="5"/>
+        <Grid x:Name="NumInputBoxAddButtonContainer" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="NumInputBoxContainer" Grid.Row="0" >
+
             </Grid>
-            <Button Width="40" Height="40" Click="Add_Button_Click" HorizontalAlignment="Center" >
+            <Button x:Name="AddButton" Width="40" Height="40" Grid.Row="1" Click="Add_Button_Click" HorizontalAlignment="Center" Visibility="Visible" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid x:Name="RootGrid">
@@ -49,46 +39,46 @@
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
                                             <ColorAnimation
-                                    Storyboard.TargetName="EllipseBase"
-                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                    To="DarkGray"
-                                    Duration="0:0:0.2" />
+                                            Storyboard.TargetName="EllipseBase"
+                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                            To="DarkGray"
+                                            Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                    Storyboard.TargetName="EllipseBase"
-                                    Storyboard.TargetProperty="Opacity"
-                                    To="0.3"
-                                    Duration="0:0:0.2" />
+                                            Storyboard.TargetName="EllipseBase"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.3"
+                                            Duration="0:0:0.2" />
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
                                             <ColorAnimation
-                                    Storyboard.TargetName="EllipseBase"
-                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                    To="LightGray"
-                                    Duration="0:0:0.2" />
+                                            Storyboard.TargetName="EllipseBase"
+                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                            To="LightGray"
+                                            Duration="0:0:0.2" />
                                             <ObjectAnimationUsingKeyFrames
-                                    Storyboard.TargetName="FontIconContent"
-                                    Storyboard.TargetProperty="Foreground">
+                                            Storyboard.TargetName="FontIconContent"
+                                            Storyboard.TargetProperty="Foreground">
                                                 <DiscreteObjectKeyFrame
-                                        KeyTime="0"
-                                        Value="{ThemeResource ButtonForegroundPressed}" />
+                                                KeyTime="0"
+                                                Value="{ThemeResource ButtonForegroundPressed}" />
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled">
                                         <Storyboard>
                                             <ColorAnimation
-                                    Storyboard.TargetName="EllipseBase"
-                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                    To="LightGray"
-                                    Duration="0:0:0.2" />
+                                            Storyboard.TargetName="EllipseBase"
+                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                            To="LightGray"
+                                            Duration="0:0:0.2" />
                                             <ObjectAnimationUsingKeyFrames
-                                    Storyboard.TargetName="FontIconContent"
-                                    Storyboard.TargetProperty="Foreground">
+                                            Storyboard.TargetName="FontIconContent"
+                                            Storyboard.TargetProperty="Foreground">
                                                 <DiscreteObjectKeyFrame
-                                        KeyTime="0"
-                                        Value="{ThemeResource ButtonForegroundDisabled}" />
+                                                KeyTime="0"
+                                                Value="{ThemeResource ButtonForegroundDisabled}" />
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
@@ -98,9 +88,8 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-
-        </StackPanel>
-        <Grid x:Name="BitVisualizerContainer" HorizontalAlignment="Right" VerticalAlignment="Center">
+        </Grid>
+    <Grid x:Name="BitVisualizerContainer" HorizontalAlignment="Right" VerticalAlignment="Center">
 
         </Grid>
     </Grid>

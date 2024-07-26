@@ -30,12 +30,12 @@ namespace HexCalc
     public sealed partial class MainWindow : Window
     {
         private static MainWindow instance;
-        private NumInputBox numInputBox1;
-        private NumInputBox numInputBox2;
-        private NumInputBox numInputBoxR;
-        private BitVisualizer bitVisualizer1;
-        private BitVisualizer bitVisualizer2;
-        private BitVisualizer bitVisualizerR;
+        public static NumInputBox numInputBox0;
+        public static NumInputBox numInputBox1;
+        public static NumInputBox numInputBoxR;
+        public static BitVisualizer bitVisualizer0;
+        public static BitVisualizer bitVisualizer1;
+        public static BitVisualizer bitVisualizerR;
 
         public MainWindow()
         {
@@ -44,10 +44,11 @@ namespace HexCalc
             SetTitleBar(AppTitleBar);
             instance = this;
             // Initialize NumInputBox1
-
+            numInputBox0 = new NumInputBox("NumInputBox0", Input.NUM_INPUT_BOX_0);
+            NumInputBoxContainer.Children.Add(numInputBox0);
             // Initialize BitVisualizer1
-            bitVisualizer1 = new BitVisualizer("BitVisualizerGrid1");
-            BitVisualizerContainer.Children.Add(bitVisualizer1);
+            bitVisualizer0 = new BitVisualizer("BitVisualizerGrid0", Input.BIT_VISUALIZER_0);
+            BitVisualizerContainer.Children.Add(bitVisualizer0);
         }
 
         public static MainWindow Instance
@@ -55,25 +56,12 @@ namespace HexCalc
             get { return instance; }
         }
 
-        public static class Values
+        /*public static class Values
         {
             public static string hexValue { get; set; } = "";
             public static string decValue { get; set; } = "";
             public static string binValue { get; set; } = "";
-        }
-
-        private async void ShowErrorMessage(string message, string title)
-        {
-            ContentDialog dialog = new ContentDialog
-            {
-                XamlRoot = this.Content.XamlRoot,
-                Title = title,
-                Content = message,
-                CloseButtonText = "OK"
-            };
-
-            await dialog.ShowAsync();
-        }
+        }*/
 
         public static bool isDarkMode()
         {
@@ -84,7 +72,7 @@ namespace HexCalc
 Value Entry Methods
 ----------------------------------------------------------------------------*/
 
-        private void NumInputTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        /*private void NumInputTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             DisplayMainWindowValues(false);
             //TODO: call function to update bit visualizer
@@ -171,14 +159,21 @@ Value Entry Methods
                 BinTextBox.Text = String.Empty;
                 ShowErrorMessage("There was an error: " + exception.Message, "Error");
             }
-        }
+        }*/
 
         private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
-            bitVisualizer2 = new BitVisualizer("BitVisualizerGrid2");
-            BitVisualizerContainer.Children.Add(bitVisualizer2);
-            bitVisualizerR = new BitVisualizer("BitVisualizerGridR");
+            // Hide add button
+            AddButton.Visibility = Visibility.Collapsed;
+
+            bitVisualizer1 = new BitVisualizer("BitVisualizerGrid1", Input.BIT_VISUALIZER_1);
+            BitVisualizerContainer.Children.Add(bitVisualizer1);
+            bitVisualizerR = new BitVisualizer("BitVisualizerGridR", Input.BIT_VISUALIZER_R);
             BitVisualizerContainer.Children.Add(bitVisualizerR);
+            numInputBox1 = new NumInputBox("NumInputBox1", Input.NUM_INPUT_BOX_1);
+            NumInputBoxContainer.Children.Add(numInputBox1);
+            numInputBoxR = new NumInputBox("NumInputBoxR", Input.NUM_INPUT_BOX_R);
+            NumInputBoxContainer.Children.Add(numInputBoxR);
         }
 
 

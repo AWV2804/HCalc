@@ -13,4 +13,11 @@
         NUM_INPUT_BOX_INV,
         BIT_VISUALIZER_INV = NUM_INPUT_BOX_INV,
     }
+
+    public static class Values
+    {
+        public static string hexValue { get; set; } = "";
+        public static string decValue { get; set; } = "";
+        public static string binValue { get; set; } = "";
+    }
 }
