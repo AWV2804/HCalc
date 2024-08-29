@@ -68,9 +68,22 @@ namespace HexCalc
                     ShowErrorMessage("Something went wrong. Please try again.", "Invalid BitVisualizer Call");
                     break;
             }
+            if (Values.binValue.Length == 32)
+            {
+                numInputBoxes[0].InstructionFormatComboBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                numInputBoxes[0].InstructionFormatComboBox.Visibility = Visibility.Collapsed;
 
+            }
         }
 
+        public void DisplayInstructionFormat()
+        {
+            Console.WriteLine("Would display instruction format");
+
+        }
         public void DisplayMainWindowValues(bool shiftedValues)
         {
             try
@@ -154,6 +167,22 @@ namespace HexCalc
         }
 
         private void NumInputTextBox_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                numInputBoxes[0].DisplayMainWindowValues(false);
+                if (Values.binValue.Length == 32)
+                {
+                    numInputBoxes[0].InstructionFormatComboBox.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    numInputBoxes[0].InstructionFormatComboBox.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void InstructionFormatComboBox_Changed(object sender, SelectionChangedEventArgs e)
         {
 
         }

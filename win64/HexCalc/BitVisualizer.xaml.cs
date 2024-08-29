@@ -129,6 +129,7 @@ namespace HexCalc
             Values.hexValue = paddedHexValue;
 
             DisplayBitVisualizerValues();
+            NumInputBox.numInputBoxes[0].DisplayMainWindowValues(true);
             //FIXME: MainWindow.Instance.DisplayMainWindowValues(true);
         }
 

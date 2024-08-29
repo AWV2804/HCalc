@@ -67,10 +67,11 @@ namespace HexCalc
         {
             return Application.Current.RequestedTheme == ApplicationTheme.Dark;
         }
+           
 
-/*----------------------------------------------------------------------------
-Value Entry Methods
-----------------------------------------------------------------------------*/
+        /*----------------------------------------------------------------------------
+        Value Entry Methods
+        ----------------------------------------------------------------------------*/
 
         /*private void NumInputTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -161,7 +162,8 @@ Value Entry Methods
             }
         }*/
 
-        private void Add_Button_Click(object sender, RoutedEventArgs e)
+
+        /*private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
             // Hide add button
             AddButton.Visibility = Visibility.Collapsed;
@@ -174,7 +176,7 @@ Value Entry Methods
             NumInputBoxContainer.Children.Add(numInputBox1);
             numInputBoxR = new NumInputBox("NumInputBoxR", Input.NUM_INPUT_BOX_R);
             NumInputBoxContainer.Children.Add(numInputBoxR);
-        }
+        }*/
 
 
         /*----------------------------------------------------------------------------

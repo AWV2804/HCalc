@@ -14,6 +14,16 @@
         BIT_VISUALIZER_INV = NUM_INPUT_BOX_INV,
     }
 
+    public enum Instruction_Format
+    {
+        R_TYPE,
+        I_TYPE,
+        S_TYPE,
+        SB_TYPE,
+        U_TYPE,
+        UJ_TYPE
+    }
+
     public static class Values
     {
         public static string hexValue { get; set; } = "";
